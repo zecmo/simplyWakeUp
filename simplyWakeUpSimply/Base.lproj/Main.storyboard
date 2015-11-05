@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,99 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm: On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpc-Qb-P7u">
+                                <rect key="frame" x="253" y="36" width="94" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="fZY-6l-wJR"/>
+                                    <constraint firstAttribute="height" constant="21" id="jyL-tp-KdV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1Lb-uC-vOc">
+                                <rect key="frame" x="257" y="397" width="87" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="fi1-Ep-nYL"/>
+                                    <constraint firstAttribute="height" constant="28" id="tKS-TW-aiJ"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="12hr"/>
+                                    <segment title="24hr"/>
+                                </segments>
+                                <connections>
+                                    <action selector="ToggleFormatAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="rzG-qz-kWm"/>
+                                </connections>
+                            </segmentedControl>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GS2-kj-d7m">
+                                <rect key="frame" x="0.0" y="150" width="600" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="II2-Dn-ZW8"/>
+                                    <constraint firstAttribute="width" constant="600" id="ZXC-vu-Kd3"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="467795905.37550098">
+                                    <!--2015-10-29 07:18:25 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="TimeSelectedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="sXP-3F-C6c"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7tz-ND-MLv">
+                                <rect key="frame" x="267" y="556" width="67" height="30"/>
+                                <state key="normal" title="Set Alarm"/>
+                                <connections>
+                                    <action selector="ActivateAlarmAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qnb-bQ-L78"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6HJ-mj-ARa">
+                                <rect key="frame" x="276" y="91" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="9zz-sc-6ok"/>
+                                    <constraint firstAttribute="width" constant="49" id="bRQ-lk-0tm"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="AlarmOnOffAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="IJq-8Q-y5h"/>
+                                </connections>
+                            </switch>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dwP-fQ-Eig">
+                                <rect key="frame" x="140" y="438" width="320" height="115"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="115" id="8sM-ql-8sp"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="468140274.09232098">
+                                    <!--2015-11-02 06:57:54 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GS2-kj-d7m" firstAttribute="top" secondItem="6HJ-mj-ARa" secondAttribute="bottom" constant="28" id="5tj-ed-ccu"/>
+                            <constraint firstItem="dwP-fQ-Eig" firstAttribute="top" secondItem="1Lb-uC-vOc" secondAttribute="bottom" constant="13" id="8eu-wq-Qgg"/>
+                            <constraint firstItem="6HJ-mj-ARa" firstAttribute="top" secondItem="mpc-Qb-P7u" secondAttribute="bottom" constant="34" id="HtN-SG-4sf"/>
+                            <constraint firstItem="GS2-kj-d7m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hz0-PA-9Sr"/>
+                            <constraint firstItem="mpc-Qb-P7u" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="IZK-Jv-7gf"/>
+                            <constraint firstItem="7tz-ND-MLv" firstAttribute="top" secondItem="1Lb-uC-vOc" secondAttribute="bottom" constant="131" id="Jaz-RK-bmy"/>
+                            <constraint firstItem="7tz-ND-MLv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Olu-mP-MPT"/>
+                            <constraint firstItem="6HJ-mj-ARa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RLu-Hh-tGm"/>
+                            <constraint firstItem="mpc-Qb-P7u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WYN-sx-Hql"/>
+                            <constraint firstItem="1Lb-uC-vOc" firstAttribute="top" secondItem="GS2-kj-d7m" secondAttribute="bottom" constant="31" id="gmx-hB-Ked"/>
+                            <constraint firstItem="1Lb-uC-vOc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jb0-B2-XLM"/>
+                            <constraint firstItem="7tz-ND-MLv" firstAttribute="top" secondItem="dwP-fQ-Eig" secondAttribute="bottom" constant="3" id="lsA-Cp-xWK"/>
+                            <constraint firstItem="dwP-fQ-Eig" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vig-NF-Fa5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ActivateAlarmButton" destination="7tz-ND-MLv" id="Anl-zz-jb9"/>
+                        <outlet property="AlarmActiveSwitch" destination="6HJ-mj-ARa" id="tYF-MO-1bs"/>
+                        <outlet property="AlarmLabel" destination="mpc-Qb-P7u" id="QKb-cR-haG"/>
+                        <outlet property="TimeFormatToggle" destination="1Lb-uC-vOc" id="S1J-Xy-yf5"/>
+                        <outlet property="TimePicker" destination="GS2-kj-d7m" id="mY8-GY-6v9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="279" y="349"/>
         </scene>
     </scenes>
 </document>
